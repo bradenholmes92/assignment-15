@@ -6,12 +6,17 @@ var forEach = function(arr, func){
 }
 // TASK 1 -- Show/Hide Nav
 document.querySelector("#hide-nav button").addEventListener('click', function(){
+
   var showHide = document.querySelector('.nav-menu')
-  //console.log(showHide)
-  if (showHide.style.display === 'none') {
-    showHide.style.display = 'block';
+  console.log(showHide.className)
+
+  if (showHide.className === 'nav-menu') {
+
+     showHide.className = 'nav-menu nav-menu-hidden';
+     console.log(showHide.className)
+
   }else {
-    showHide.style.display = 'none';
+     showHide.className = 'nav-menu';
   }
 })
 // TASK 2 -- Select an Icon
@@ -57,10 +62,11 @@ var probationList = document.querySelector('.probation-list')
 //console.log(probationList)
 forEach(wholeList, function(liElement, index, array){
   liElement.addEventListener('click', function(){
-      if (liElement.parentNode.className === goodStanding) {
+      if (liElement.parentNode.className === goodStanding.className) {
         goodStanding.removeChild(liElement)
         probationList.appendChild(liElement)
       }else {
+
         probationList.removeChild(liElement)
         goodStanding.appendChild(liElement)
       }
